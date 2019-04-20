@@ -11,5 +11,7 @@ MongoDB
 ### Build Steps
 At root level in project:
 * ```npm install```
-* ```npm start``` OR ```npm run dev``` (runs using nodemon in dev)
+* ```npm start``` OR ```npm run dev``` (runs using nodemon in dev)  
+
+(<i> Ensure MongoDB is running locally </i>)
 
