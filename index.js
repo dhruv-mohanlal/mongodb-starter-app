@@ -17,11 +17,11 @@ app.get('/users', async (req, res) => await requestHandler(req, res));
 
 app.get('/users/:id', async (req, res) => await requestHandler(req, res));
 
-app.post('/users', async(req, res) => await requestHandler(req, res));
+app.post('/users', async (req, res) => await requestHandler(req, res));
 
-app.patch('/users/:id', async(req, res) => await requestHandler(req, res));
+app.patch('/users/:id', async (req, res) => await requestHandler(req, res));
 
-app.delete('/users/:id', async(req, res) => await requestHandler(req, res));
+app.delete('/users/:id', async (req, res) => await requestHandler(req, res));
 
 app.delete('/users', async (req, res) => await requestHandler(req, res));
 

@@ -9,4 +9,4 @@ const errorLogger = (uuid, method, message) => {
     return logger.error(`RequestCorrelationId='${uuid}' method='${method}' Message='${message}'`);
 }
 
-module.exports = {infoLogger, errorLogger};
+module.exports = { infoLogger, errorLogger };

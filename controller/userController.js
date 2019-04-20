@@ -29,7 +29,7 @@ const getUser = async (id, uuid) => {
 const createUser = async (user, uuid) => {
     try {
         infoLogger(uuid, 'createUser', `Attempting to create user ${user.name}`);
-        user = Object.assign(user, {_id: new mongoose.Types.ObjectId()})
+        user = Object.assign(user, { _id: new mongoose.Types.ObjectId() })
         const addedUser = new Users(user);
         infoLogger(uuid, 'createUser', `User ${user.name} successfully created`);
         return addedUser.save();
@@ -45,7 +45,7 @@ const updateUser = async (id, user, uuid) => {
         //find user first
         const foundUser = await Users.findById(id);
         //update document based on input
-        for(let key in user) {
+        for (let key in user) {
             foundUser[key] = user[key];
         }
         infoLogger(uuid, 'updateUser', `User ${user.name} successfully updated`);
@@ -59,22 +59,22 @@ const updateUser = async (id, user, uuid) => {
 const removeUser = async (id, uuid) => {
     try {
         infoLogger(uuid, 'removeUser', `Attempting to remove user with ID ${id}`);
-        const deletedUser = await Users.deleteOne({_id: id});
+        const deletedUser = await Users.deleteOne({ _id: id });
         infoLogger(uuid, 'removeUser', `User with ID ${id} successfully removed`);
         return deletedUser;
-    } catch(e) {
+    } catch (e) {
         errorLogger(uuid, 'removeUser', `User with ID ${id} could not be removed`);
         return `Error removing user from db with ID ${id}`;
     }
 }
 
-const removeAllUsers =  async uuid => {
+const removeAllUsers = async uuid => {
     try {
         infoLogger(uuid, 'removeUser', `Attempting to remove all users`);
         const deletedUser = await Users.deleteMany({});
         infoLogger(uuid, 'removeUser', `All users successfully removed`);
         return deletedUser;
-    } catch(e) {
+    } catch (e) {
         errorLogger(uuid, 'removeUser', `User were not removed`)
         return `Error removing all users from db`;
     }
